@@ -164,4 +164,3 @@ age = readline(prompt = "Input your age: ")
 #Input your age: 20
 print(paste("My name is",name, "and I am",age, "years old."))   
 #[1] "My name is Nikolai Agsaluna and I am 20 years old."
-  
