@@ -2,7 +2,7 @@
 title: "RWorksheeet_Agsaluna#3 A.Rmd"
 author: "Nikolai Agsaluna"
 date: "2023-10-25"
-output: html_document
+output: pdf_document
 ---
 
 #Number 1:
@@ -178,3 +178,4 @@ dimnames(array_data) <- list(
 )
 print(array_data)
 ```
+
