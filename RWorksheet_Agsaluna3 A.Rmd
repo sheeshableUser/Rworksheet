@@ -1,0 +1,206 @@
+---
+title: "RWorksheet_Agsaluna3 A"
+author: "Nikolai Agsaluna"
+date: "2023-10-30"
+output: pdf_document
+---
+
+#1.
+#A.
+```{r num1a}
+first_11_letters <- LETTERS[1:11]
+first_11_letters
+#"A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K"
+```
+#B.
+```{r num1b}
+odd_numbers <- seq(1, 26, by = 2)
+odd_letters <- LETTERS[odd_numbers]
+odd_letters
+# "A" "C" "E" "G" "I" "K" "M" "O" "Q" "S" "U" "W" "Y"
+```
+#C.
+```{r num1c}
+vowels <- LETTERS[LETTERS %in% c("A", "E", "I", "O", "U")]
+vowels
+#"A" "E" "I" "O" "U"
+```
+#D.
+```{r num1d}
+last_5_lowercase_letters <- tail(letters, 5)
+last_5_lowercase_letters
+#"v" "w" "x" "y" "z"
+```
+#E.
+```{r num1e}
+letters_between_15_to_24 <- letters[15:24]
+letters_between_15_to_24
+#"o" "p" "q" "r" "s" "t" "u" "v" "w" "x"
+```
+#2.
+#A.
+```{r num2a}
+city <-c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+city
+#"Tuguegarao City" "Manila"          "Iloilo City"     "Tacloban"       
+#"Samal Island"    "Davao City"
+```
+#B.
+```{r num2b}
+temp <-c(42, 39, 34, 34, 30, 27)
+temp
+#42 39 34 34 30 27
+```
+#C.
+```{r num2c}
+data <- data.frame(City = city, Temperature = temp)
+data
+#City Temperature
+#1 Tuguegarao City          42
+#2          Manila          39
+#3     Iloilo City          34
+#4        Tacloban          34
+#5    Samal Island          30
+#6      Davao City          27
+```
+#D.
+```{r num2d}
+names(data) <-c("City", "Temperature")
+names(data)
+# "City"        "Temperature"
+```
+#E.
+```{r num2e}
+str(data)
+```
+#F.
+```{r num2f}
+data[3, ]
+data[4, ]
+```
+#G.
+```{r num2g}
+max_temp_city <-  data[data$Temperature == max(data$Temperature), "City"]
+min_temp_city <-  data[data$Temperature == min(data$Temperature), "City"]  
+max_temp_city
+min_temp_city
+#> max_temp_city
+# "Tuguegarao City"
+# min_temp_city
+# "Davao City"
+```
+#                  "USING MATRIX"
+
+#Number 2:
+```{r num2matrix1}
+#row = 2
+rc <-matrix(c(5,6,7,4,3,2,1,2,3,7,8,9),nrow = 2)
+rc
+```
+#row = 3 and column = 2
+```{r nummatrix2}
+matrix(data = c(3,4,5,6,7,8),3,2)
+matrix (data)
+```
+#creating a diagonal matrix where  value will always be 1
+```{r nummatrix3}
+diag(1,nrow=6,ncol = 5)
+diag(6)
+```
+#Number 2
+
+#A
+```{r num2matrix a}
+matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+#RESULT:[,1] [,2] [,3] [,4]
+#[1,]    1    4    7   12
+#[2,]    2    5    8   13
+#[3,]    3    6   11   14
+```
+#B.
+```{r num2matrix b}
+matrix(c(1:8, 11:14), nrow = 3, ncol = 4) * 2
+#Result value is multiplied by 2:
+ #     [,1] [,2] [,3] [,4]
+#[1,]    2    8   14   24
+#[2,]    4   10   16   26
+#[3,]    6   12   22   28
+```
+#C: RESULT CONTENT OF ROW TO =  2  5  8 13
+```{r num2matrix c}
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+matrix_data[2, ] 
+# 2  5  8 13
+```
+#D
+```{r num2matrix d}
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+matrix_data[1:2, 3:4]
+# [1,]    7   12
+# [2,]    8   13
+```
+#E
+```{r num2matrix e}
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+matrix_data[3, 2:3]
+#6 11
+```
+#F
+```{r num2matrix f}
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+matrix_data[, 4]
+#12 13 14
+```
+#G
+```{r num2matrix g}
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+matrix_data 
+#[,1] [,2] [,3] [,4]
+#[1,]    1    4    7   12
+# [2,]    2    5    8   13
+# [3,]    3    6   11   14
+
+rownames(matrix_data) <- c("isa", "dalawa", "tatlo")
+rownames(matrix_data)
+#"isa"    "dalawa" "tatlo" 
+
+colnames(matrix_data) <- c("uno", "dos", "tres", "quatro")
+colnames(matrix_data)
+#"uno"    "dos"    "tres"   "quatro"
+```
+#H
+```{r num2matrix h}
+library(dplyr)
+matrix_data <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+new_matrix <- matrix_data %>% t() %>% as.vector() %>% matrix(ncol = 2)
+```
+
+#                   "USING ARRAYS"
+
+#Number 3: # B: result array has 3 dimensions: 2 rows, 4 columns, and 2 "layers" (depth). So, it is a three-dimensional array.
+
+# Given numeric values
+```{r numarray b}
+values <- c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1)
+values
+
+matrix_data <- matrix(rep(values, each = 2), nrow = 2)
+matrix_data
+
+array_data <- array(matrix_data, dim = c(2, 4, 2))
+array_data
+
+
+rownames(array_data) <- c("a", "b")
+colnames(array_data) <- c("A", "B", "C", "D")
+```
+#C
+```{r numarray c}
+# Assign names to the dimensions
+dimnames(array_data) <- list(
+  "1st-Dimensional Array" = rownames(array_data),
+  "2nd-Dimensional Array" = colnames(array_data),
+  "3rd-Dimensional Array" = NULL
+)
+print(array_data)
+```
